@@ -1,15 +1,21 @@
 package com.bezkoder.spring.data.mongodb.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Document(collection = "tutorials")
+@Entity
+@Table(name = "tutorials")
 public class Tutorial {
   @Id
   private String id;
 
+  @Column(nullable = false)
   private String title;
+
   private String description;
+
   private boolean published;
 
   public Tutorial() {
